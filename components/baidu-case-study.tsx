@@ -1,4 +1,3 @@
-import { sitePath } from "@/lib/site-path";
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronDown, Download, Gauge } from "lucide-react";
@@ -61,9 +60,9 @@ export function BaiduCaseStudy({ item, nextCase }: BaiduCaseStudyProps) {
       <header className="case-nav">
         {/* Native navigation avoids the vinext client-router failure in production. */}
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-        <a href={sitePath("/#experience")}><ArrowLeft size={17} aria-hidden="true" /> 返回工作经历</a>
+        <a href="/#experience"><ArrowLeft size={17} aria-hidden="true" /> 返回工作经历</a>
         <span>BJ / BAIDU CASE</span>
-        <a href={sitePath("/docs/resume.pdf")} download="柏俊男-产品经理简历.pdf">简历 PDF <Download size={15} aria-hidden="true" /></a>
+        <a href="/docs/resume.pdf" download="柏俊男-产品经理简历.pdf">简历 PDF <Download size={15} aria-hidden="true" /></a>
       </header>
 
       <section className="case-hero baidu-case-hero" id="case-overview">
@@ -95,12 +94,12 @@ export function BaiduCaseStudy({ item, nextCase }: BaiduCaseStudyProps) {
           <Reveal className="baidu-diagnosis-card">
             <div className="baidu-diagnosis-index"><span>01</span><strong>用户在等待中流失</strong></div>
             <p>加载页到讲解页的转化率仅 <strong>27.8%</strong>；等待超过 10 秒后进入持续流失区间，优先处理进入讲解前的耗时。</p>
-            <EvidenceFigure src={sitePath("/assets/baidu-waiting-curve.png")} alt="等待时长与转化率关系曲线" caption="等待时长与转化率" width={1024} height={804} />
+            <EvidenceFigure src="/assets/baidu-waiting-curve.png" alt="等待时长与转化率关系曲线" caption="等待时长与转化率" width={1024} height={804} />
           </Reveal>
           <Reveal className="baidu-diagnosis-card" delay={.05}>
             <div className="baidu-diagnosis-index"><span>02</span><strong>讲解质量影响体验</strong></div>
             <p>汇总 <strong>25,509</strong> 条反馈与 <strong>455</strong> 条手写评价，集中问题是加载慢、答案与讲解错误、语音不播放。</p>
-            <EvidenceFigure src={sitePath("/assets/baidu-user-feedback.png")} alt="文心老师用户评价分类材料" caption="用户反馈分类" width={1656} height={842} />
+            <EvidenceFigure src="/assets/baidu-user-feedback.png" alt="文心老师用户评价分类材料" caption="用户反馈分类" width={1656} height={842} />
           </Reveal>
           <Reveal className="baidu-diagnosis-card baidu-competitor-card" delay={.1}>
             <div className="baidu-diagnosis-index"><span>03</span><strong>同题表现存在差距</strong></div>
@@ -138,7 +137,7 @@ export function BaiduCaseStudy({ item, nextCase }: BaiduCaseStudyProps) {
                   <li>整理解法超纲、推演不合理、过程缺失等典型问题，明确扣分条件，用案例校准判分尺度。</li>
                 </ul>
               </div>
-              <EvidenceFigure src={sitePath("/assets/baidu-evaluation-rubric.png")} alt="评分标准节选：解法超纲、推演不合理、解法与题干要求不符、只有答案没有过程等扣分项及案例说明" caption="评分标准与判分示例" width={622} height={284} />
+              <EvidenceFigure src="/assets/baidu-evaluation-rubric.png" alt="评分标准节选：解法超纲、推演不合理、解法与题干要求不符、只有答案没有过程等扣分项及案例说明" caption="评分标准与判分示例" width={622} height={284} />
             </div>
           </CaseDetails>
         </Reveal>
@@ -208,8 +207,8 @@ export function BaiduCaseStudy({ item, nextCase }: BaiduCaseStudyProps) {
         <SectionTitle label="PRODUCT / 产品演示" title="看一道题如何讲解，以及如何继续追问。" />
         <Reveal className="baidu-product-lead">
           <div className="baidu-product-video">
-            <video controls preload="none" poster={sitePath("/assets/wenxin-demo-poster.svg")} aria-label="文心老师产品演示视频" playsInline>
-              <source src={sitePath("/assets/wenxin-demo.m4v")} type="video/mp4" />
+            <video controls preload="none" poster="/assets/wenxin-demo-poster.svg" aria-label="文心老师产品演示视频" playsInline>
+              <source src="/assets/wenxin-demo.m4v" type="video/mp4" />
               你的浏览器暂不支持视频播放。
             </video>
           </div>
@@ -224,9 +223,9 @@ export function BaiduCaseStudy({ item, nextCase }: BaiduCaseStudyProps) {
         <CaseDetails title="查看板书、分层讲解与追问界面">
           <div className="baidu-product-screens">
             {[
-              { src: sitePath("/assets/baidu-product-board.png"), label: "在线板书", alt: "文心老师在线板书界面", width: 904, height: 2192 },
-              { src: sitePath("/assets/baidu-product-knowledge.png"), label: "分层讲解", alt: "文心老师分层讲解界面", width: 904, height: 2192 },
-              { src: sitePath("/assets/baidu-product-dialogue.png"), label: "互动追问", alt: "文心老师互动追问界面", width: 1290, height: 2600 },
+              { src: "/assets/baidu-product-board.png", label: "在线板书", alt: "文心老师在线板书界面", width: 904, height: 2192 },
+              { src: "/assets/baidu-product-knowledge.png", label: "分层讲解", alt: "文心老师分层讲解界面", width: 904, height: 2192 },
+              { src: "/assets/baidu-product-dialogue.png", label: "互动追问", alt: "文心老师互动追问界面", width: 1290, height: 2600 },
             ].map((screen) => <EvidenceFigure key={screen.src} src={screen.src} alt={screen.alt} caption={screen.label} width={screen.width} height={screen.height} />)}
           </div>
         </CaseDetails>
@@ -235,16 +234,16 @@ export function BaiduCaseStudy({ item, nextCase }: BaiduCaseStudyProps) {
       <section className="baidu-field-section" id="case-field">
         <SectionTitle label="FIELD / 现场交流" title="在百度 AI Day 向媒体演示产品。" />
         <div className="baidu-field-grid baidu-field-gallery">
-          <Reveal className="baidu-field-card"><div><Image src={sitePath("/assets/hero-alt.webp")} alt="柏俊男在百度 AI Day 向媒体演示文心老师" fill sizes="(max-width: 760px) 90vw, 58vw" /></div><p>现场演示 · 介绍讲题流程，并回应追问</p></Reveal>
-          <Reveal className="baidu-field-card" delay={.06}><div><Image src={sitePath("/assets/baidu-booth.webp")} alt="百度 AI Day 文心老师线下体验展台" fill sizes="(max-width: 760px) 90vw, 38vw" /></div><p>体验展台 · 展示板书、讲解与追问能力</p></Reveal>
+          <Reveal className="baidu-field-card"><div><Image src="/assets/hero-alt.webp" alt="柏俊男在百度 AI Day 向媒体演示文心老师" fill sizes="(max-width: 760px) 90vw, 58vw" /></div><p>现场演示 · 介绍讲题流程，并回应追问</p></Reveal>
+          <Reveal className="baidu-field-card" delay={.06}><div><Image src="/assets/baidu-booth.webp" alt="百度 AI Day 文心老师线下体验展台" fill sizes="(max-width: 760px) 90vw, 38vw" /></div><p>体验展台 · 展示板书、讲解与追问能力</p></Reveal>
         </div>
       </section>
 
       <section className="next-case">
         {/* Native navigation avoids the vinext client-router failure in production. */}
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-        <a href={sitePath("/#experience")}><ArrowLeft aria-hidden="true" /> 返回工作经历</a>
-        <a href={sitePath(`/work/${nextCase.slug}`)}><span>下一个案例 · {nextCase.company}</span><strong>{nextCase.title}</strong><ArrowRight aria-hidden="true" /></a>
+        <a href="/#experience"><ArrowLeft aria-hidden="true" /> 返回工作经历</a>
+        <a href={`/work/${nextCase.slug}`}><span>下一个案例 · {nextCase.company}</span><strong>{nextCase.title}</strong><ArrowRight aria-hidden="true" /></a>
       </section>
     </main>
   );

@@ -1,4 +1,3 @@
-import { sitePath } from "@/lib/site-path";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CaseStudy } from "@/components/case-study";
@@ -17,8 +16,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${item.company}项目案例`,
     description: item.oneLine,
-    alternates: { canonical: sitePath(`/work/${item.slug}/`) },
-    openGraph: { title: `${item.company}项目案例｜柏俊男`, description: item.oneLine, url: sitePath(`/work/${item.slug}/`) },
   };
 }
 

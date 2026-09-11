@@ -1,4 +1,3 @@
-import { sitePath } from "@/lib/site-path";
 export type GuideAnswer = {
   id: string;
   question: string;
@@ -14,7 +13,7 @@ export const guideAnswers: GuideAnswer[] = [
     keywords: ["ai", "人工智能", "模型", "prompt", "适合"],
     answer:
       "我做 AI 产品时，会把模型效果放回完整的用户体验里看。在百度，我用准确率、首轮响应和音画同步拆解留存问题，推动解题准确率从 68.6% 提升到 89.2%，首轮响应从 21.2 秒降到 3.2 秒。",
-    link: { label: "查看百度案例", href: sitePath("/work/baidu-wenxin") },
+    link: { label: "查看百度案例", href: "/work/baidu-wenxin" },
   },
   {
     id: "signature",
@@ -22,7 +21,7 @@ export const guideAnswers: GuideAnswer[] = [
     keywords: ["代表", "项目", "文心", "百度", "作品"],
     answer:
       "最能代表我的是百度「文心老师」。这个项目让我同时处理模型效果、用户信任和端到端链路。我既做模型择优、Prompt 优化和 Badcase 修复，也推动 OCR、TTS 与加载机制改造，再把能力接进搜索、文心助手和错题本。",
-    link: { label: "查看完整项目", href: sitePath("/work/baidu-wenxin") },
+    link: { label: "查看完整项目", href: "/work/baidu-wenxin" },
   },
   {
     id: "data",
@@ -30,7 +29,7 @@ export const guideAnswers: GuideAnswer[] = [
     keywords: ["数据", "指标", "ab", "a/b", "决策", "实验", "漏斗"],
     answer:
       "我会先用数据定位影响目标的关键环节，再让每个方案对应一个指标。百度「文心老师」项目里，我结合页面数据、竞品体验和用户反馈，用准确率、首轮响应和音画同步拆解留存问题，推动模型与链路优化。解题准确率从 68.6% 提升到 89.2%，首轮响应从 21.2 秒降到 3.2 秒，次日留存从 5.3% 提升到 9.7%。",
-    link: { label: "查看百度案例", href: sitePath("/work/baidu-wenxin") },
+    link: { label: "查看百度案例", href: "/work/baidu-wenxin" },
   },
   {
     id: "collaboration",
@@ -38,7 +37,7 @@ export const guideAnswers: GuideAnswer[] = [
     keywords: ["团队", "协作", "推进", "复杂", "沟通", "跨团队", "落地"],
     answer:
       "我会先把复杂系统拆成接口、负责人和里程碑。美团厂商广告项目牵涉商业化、搜索、算法、研发、数据、设计和运营。我按商品池、预算、召回、排序、计费与归因拆解依赖，跟进研发站会，最后在 6 周内推进上线。",
-    link: { label: "查看美团案例", href: sitePath("/work/meituan-commercialization") },
+    link: { label: "查看美团案例", href: "/work/meituan-commercialization" },
   },
   {
     id: "difference",

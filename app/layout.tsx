@@ -1,4 +1,3 @@
-import { sitePath } from "@/lib/site-path";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
@@ -14,14 +13,14 @@ export const metadata: Metadata = {
     "柏俊男的产品作品集：从 AI 效果、C 端转化到商业化系统，看问题如何被拆清、推进并验证。",
   keywords: ["柏俊男", "AI 策略产品经理", "AI 产品", "产品作品集"],
   authors: [{ name: "柏俊男" }],
-  alternates: { canonical: siteUrl.toString() },
-  icons: { icon: sitePath("/icon.svg") },
+  alternates: { canonical: "/" },
+  icons: { icon: "/icon.svg" },
   openGraph: {
     title: "柏俊男｜AI 策略产品经理",
     description: "把复杂问题，做成可落地结果。",
     type: "website",
     locale: "zh_CN",
-    url: siteUrl.toString(),
+    url: "/",
   },
   twitter: {
     card: "summary_large_image",

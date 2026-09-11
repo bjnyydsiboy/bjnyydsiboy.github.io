@@ -1,7 +1,5 @@
 "use client";
 
-import { sitePath } from "@/lib/site-path";
-
 import { Check, Copy, Download, Eye, EyeOff, Mail, Phone } from "lucide-react";
 import { useRef, useState } from "react";
 
@@ -46,7 +44,7 @@ export function ContactCard() {
         <span>LET&apos;S TALK</span>
         <h3>如果你也在找一个<br />会把事情推到落地的人。</h3>
         <p>欢迎从一个具体项目聊起。我会认真回复。</p>
-        <a className="primary-button" href={sitePath("/docs/resume.pdf")} download="柏俊男-产品经理简历.pdf">
+        <a className="primary-button" href="/docs/resume.pdf" download="柏俊男-产品经理简历.pdf">
           <Download size={18} aria-hidden="true" /> 下载简历
         </a>
       </div>

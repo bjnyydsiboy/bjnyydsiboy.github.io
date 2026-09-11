@@ -1,15 +1,19 @@
-import { sitePath } from "@/lib/site-path";
 import Image from "next/image";
 import {
   ArrowLeft,
   ArrowRight,
   BarChart3,
   CheckCircle2,
+  CircleDollarSign,
   Download,
+  FlaskConical,
   Gauge,
+  Layers3,
   MousePointerClick,
   Network,
+  Route,
   Search,
+  ShoppingBag,
   SlidersHorizontal,
   Store,
   Target,
@@ -18,7 +22,7 @@ import { Companion } from "@/components/companions";
 import { Reveal } from "@/components/reveal";
 import type { WorkCase } from "@/data/portfolio";
 
-type CommerceSlug = Exclude<WorkCase["slug"], "baidu-wenxin">;
+type CommerceSlug = "douyin-live" | "meituan-commercialization";
 
 type ActionMedia = {
   layout: "comparison" | "single" | "gallery";
@@ -77,6 +81,141 @@ type CommerceCaseConfig = {
 };
 
 const commerceConfigs: Record<CommerceSlug, CommerceCaseConfig> = {
+  "douyin-live": {
+    className: "douyin-structured-page",
+    navLabel: "BJ / DOUYIN CASE",
+    heroCaption: "把内容兴趣接到交易决定",
+    product: {
+      label: "业务链路",
+      title: "这不是一张商详页，而是一条从内容兴趣到本地履约的交易链路。",
+      note: "直播负责激发兴趣，导流卡负责筛选意向，半屏商详负责完成购买判断。",
+      intro: "本地生活商品受距离、时间、库存和服务条件影响。用户必须在不中断直播体验的前提下，快速判断“适不适合我、现在能不能买”。",
+      steps: [
+        { label: "内容推荐", text: "刷到感兴趣的直播内容" },
+        { label: "精准导流", text: "先看距离、折扣与库存" },
+        { label: "半屏商详", text: "保持直播上下文完成判断" },
+        { label: "下单支付", text: "用更短路径完成交易" },
+      ],
+    },
+    background: {
+      title: "用户被直播种草，却在距离、库存和跳转里流失。",
+      note: "我把用户反馈、关键漏斗与页面结构放在一起看，确认问题并不是“没人感兴趣”，而是购买判断所需的信息来得太晚。",
+      evidence: [
+        { label: "用户场景", value: "20km", title: "点进去才发现离得太远", text: "游玩、演出票、餐饮套餐和酒店同时受到时间、空间与服务条件约束，简单标题无法完成筛选。" },
+        { label: "漏斗断点", value: "77.13%", title: "商详页跳出率过高", text: "小房车到商详转化仅 35.92%，商详到下单仅 21.37%，页面调用和信息组织同时制造流失。" },
+        { label: "信息缺口", value: "<3s", title: "用户很快判断页面无效", text: "库存、距离、场次和优惠没有在关键位置前置，用户进入后仍要反复翻找并询问主播。" },
+      ],
+    },
+    goal: {
+      title: "让合适的人点进来，并用更少步骤做完购买决定。",
+      priorities: [
+        { word: "准", title: "导流更精准", text: "点击前就给出距离、价格、销量、库存与直播状态。" },
+        { word: "短", title: "链路更短", text: "取消二级页面跳转，用半屏承接并保留直播上下文。" },
+        { word: "清", title: "商详更清楚", text: "按商品形态组织优惠、服务保障、预约与购买入口。" },
+      ],
+    },
+    roleTitle: "从漏斗定位问题，把信息、链路和实验一起推进到全量。",
+    responsibilities: [
+      { icon: Search, label: "定位断点", text: "结合数据漏斗、用户反馈与竞品体验，确定导流、跳转链路和商详是三个核心抓手。" },
+      { icon: Layers3, label: "设计方案", text: "重构导流信息，设计半屏商详与无图、有图、多图三类商品详情结构。" },
+      { icon: FlaskConical, label: "建立验证", text: "补齐曝光、点击、停留与转化埋点，通过连续 A/B 实验判断真实效果。" },
+      { icon: Network, label: "推动上线", text: "协同算法、前后端、设计、运营和测试完成评审、兼容、灰度与全量。" },
+    ],
+    actionsTitle: "围绕三个断点改：先筛准，再缩链，最后把商详讲清楚。",
+    actions: [
+      {
+        label: "动作 01 · 精准导流",
+        title: "把影响本地生活决策的信息，放到点击之前。",
+        text: "把只展示主播和入口的预览式导流，升级为可直接判断距离、价格、销量、库存与直播状态的交易卡片；用户在点击前就能确认是否适合自己。",
+        tags: ["距离", "折扣", "销量", "库存", "直播状态"],
+        media: {
+          layout: "comparison",
+          items: [
+            {
+              src: "/assets/douyin-guide-old.png",
+              alt: "改版前仅展示主播与进入直播间按钮的预览式导流",
+              label: "改版前 · 主播预览",
+              note: "只有内容吸引力，缺少交易判断信息",
+              kind: "phone",
+            },
+            {
+              src: "/assets/douyin-guide-new.png",
+              alt: "改版后前置距离、价格、销量和库存的精准导流卡片",
+              label: "改版后 · 交易信息前置",
+              note: "进入前即可判断距离、价格与库存",
+              kind: "phone",
+              featured: true,
+            },
+          ],
+        },
+      },
+      {
+        label: "动作 02 · 链路缩短",
+        title: "把二级页面改成直播间内的半屏承接。",
+        text: "半屏直接复用直播间状态，减少独立页面再次加载带来的调用失败；用户无需离开直播即可浏览商品、随时收起返回内容，交互更轻、链路也更连贯。",
+        tags: ["减少调用失败", "直播上下文", "随时收起"],
+        media: {
+          layout: "single",
+          items: [
+            {
+              src: "/assets/douyin-half-screen.png",
+              alt: "直播间内打开商品列表的半屏承接样式",
+              label: "直播间内半屏承接",
+              note: "商品浏览与直播内容保持在同一上下文",
+              kind: "phone",
+            },
+          ],
+        },
+      },
+      {
+        label: "动作 03 · 商详分型",
+        title: "不再用一种页面承接所有商品。",
+        text: "按无图、有图、多图拆分商详形态，前置价格优惠、购买须知、服务保障、地址与预约时间，并固定关键操作按钮。",
+        tags: ["无图", "有图", "多图", "服务保障", "固定 CTA"],
+        media: {
+          layout: "gallery",
+          items: [
+            {
+              src: "/assets/douyin-detail-rules.png",
+              alt: "以前置购买须知和退款规则为核心的商品详情",
+              label: "规则型商详",
+              note: "先回答能不能用、怎么退",
+              kind: "phone",
+            },
+            {
+              src: "/assets/douyin-detail-image.png",
+              alt: "带商品图片、优惠和服务信息的图文商品详情",
+              label: "图文型商详",
+              note: "图片、优惠与服务信息聚合",
+              kind: "phone",
+              featured: true,
+            },
+            {
+              src: "/assets/douyin-detail-immersive.png",
+              alt: "以大图和预约日期为核心的沉浸式商品详情",
+              label: "沉浸型商详",
+              note: "大图展示并前置预约决策",
+              kind: "phone",
+            },
+          ],
+        },
+      },
+    ],
+    resultsTitle: "点击更精准，购买路径也更短。",
+    resultNote: "连续 A/B 实验验证了导流、商详与交易漏斗的改善。",
+    resultLabels: ["原方案", "新方案"],
+    comparisons: [
+      { label: "导流页点击率", before: "18.92%", after: "27.99%", beforeWidth: "68%", afterWidth: "100%", direction: "提升 9.07 个百分点" },
+      { label: "商详至下单", before: "21.37%", after: "29.71%", beforeWidth: "72%", afterWidth: "100%", direction: "提升 8.34 个百分点" },
+      { label: "商详页跳出率", before: "77.13%", after: "59.04%", beforeWidth: "100%", afterWidth: "76.5%", direction: "降低 18.09 个百分点" },
+    ],
+    summary: [
+      { icon: CircleDollarSign, label: "直播间 GMV", value: "+4.12%" },
+      { icon: MousePointerClick, label: "直播间点击率", value: "20.43% → 23.78%" },
+      { icon: ShoppingBag, label: "商详至支付", value: "12.92% → 15.78%" },
+      { icon: Route, label: "商详平均步骤", value: "3.42 → 2.01" },
+    ],
+  },
   "meituan-commercialization": {
     className: "meituan-structured-page",
     navLabel: "BJ / MEITUAN CASE",
@@ -207,9 +346,9 @@ export function StructuredCommerceCaseStudy({ item, nextCase }: { item: WorkCase
       <header className="case-nav">
         {/* Native navigation avoids the vinext client-router failure in production. */}
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-        <a href={sitePath("/#experience")}><ArrowLeft size={17} aria-hidden="true" /> 返回工作经历</a>
+        <a href="/#experience"><ArrowLeft size={17} aria-hidden="true" /> 返回工作经历</a>
         <span>{config.navLabel}</span>
-        <a href={sitePath("/docs/resume.pdf")} download="柏俊男-产品经理简历.pdf">简历 PDF <Download size={15} aria-hidden="true" /></a>
+        <a href="/docs/resume.pdf" download="柏俊男-产品经理简历.pdf">简历 PDF <Download size={15} aria-hidden="true" /></a>
       </header>
 
       <section className="case-hero structured-case-hero">
@@ -220,7 +359,7 @@ export function StructuredCommerceCaseStudy({ item, nextCase }: { item: WorkCase
           <div className="case-meta-line"><strong>{item.team}</strong><strong>{item.period}</strong></div>
         </div>
         <div className="case-hero-companion">
-          <Companion type={item.companion} label="美团袋鼠团团" />
+          <Companion type={item.companion} label={item.slug === "douyin-live" ? "抖音音符角色" : "美团袋鼠团团"} />
           <span>{config.heroCaption}</span>
         </div>
       </section>
@@ -304,8 +443,8 @@ export function StructuredCommerceCaseStudy({ item, nextCase }: { item: WorkCase
       <section className="next-case">
         {/* Native navigation avoids the vinext client-router failure in production. */}
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-        <a href={sitePath("/#experience")}><ArrowLeft aria-hidden="true" /> 返回工作经历</a>
-        <a href={sitePath(`/work/${nextCase.slug}`)}><span>下一个案例 · {nextCase.company}</span><strong>{nextCase.title}</strong><ArrowRight aria-hidden="true" /></a>
+        <a href="/#experience"><ArrowLeft aria-hidden="true" /> 返回工作经历</a>
+        <a href={`/work/${nextCase.slug}`}><span>下一个案例 · {nextCase.company}</span><strong>{nextCase.title}</strong><ArrowRight aria-hidden="true" /></a>
       </section>
     </main>
   );

@@ -1,4 +1,3 @@
-import { sitePath } from "@/lib/site-path";
 export type Metric = {
   value: string;
   label: string;
@@ -6,7 +5,7 @@ export type Metric = {
 };
 
 export type WorkCase = {
-  slug: "baidu-wenxin" | "meituan-commercialization";
+  slug: "baidu-wenxin" | "douyin-live" | "meituan-commercialization";
   company: string;
   team: string;
   role: string;
@@ -27,8 +26,8 @@ export type WorkCase = {
   metrics: Metric[];
   moreMetrics: Metric[];
   reflection: string[];
-  accent: "blue" | "yellow";
-  companion: "bear" | "kangaroo";
+  accent: "blue" | "ink" | "yellow";
+  companion: "bear" | "note" | "kangaroo";
   media: Array<{
     type: "image" | "video";
     src: string;
@@ -104,23 +103,86 @@ export const workCases: WorkCase[] = [
     media: [
       {
         type: "image",
-        src: sitePath("/assets/hero-alt.webp"),
+        src: "/assets/hero-alt.webp",
         alt: "柏俊男在百度 AI Day 向媒体介绍文心老师",
         caption: "百度 AI Day · 向媒体演示产品",
       },
       {
         type: "image",
-        src: sitePath("/assets/baidu-booth.webp"),
+        src: "/assets/baidu-booth.webp",
         alt: "百度 AI Day 文心老师体验展台",
         caption: "文心老师线下体验展台",
       },
       {
         type: "video",
-        src: sitePath("/assets/wenxin-demo.m4v"),
-        poster: sitePath("/assets/baidu-booth.webp"),
+        src: "/assets/wenxin-demo.m4v",
+        poster: "/assets/baidu-booth.webp",
         alt: "文心老师产品演示视频",
         caption: "产品演示 · 点击播放",
       },
+    ],
+  },
+  {
+    slug: "douyin-live",
+    company: "字节跳动",
+    team: "抖音直播 · 用户产品组",
+    role: "C 端产品经理",
+    period: "2025.07—2025.10",
+    title: "抖音本地生活直播：从精准导流到商详下单的交易链路优化",
+    oneLine: "重构直播导流、缩短关键链路并升级商详，让本地生活交易更精准、更高效。",
+    cardBackground: "抖音直播页面存在用户决策成本高、信息获取低效、库存及时空敏感等问题；数据排查发现导流、商详加载与下单支付链路均有明显转化短板。",
+    cardGoal: "降低用户的决策与页面调用成本，提升精准用户进入、商详承接和下单支付效率，最终扩大直播交易规模。",
+    cardAction: "重做导流页，前置距离、价格和库存等信息，减少无效进房；用半屏商详替代二级跳转，降低调用失败并保留直播上下文；按无图、有图、多图拆分商详，突出优惠、服务和购买入口，降低选择与下单成本。",
+    cardResult: "导流页点击率由 18.92% 提升至 27.99%，商详至下单转化由 21.37% 提升至 29.71%，直播间 GMV 增长 4.12%。",
+    context: "本地生活直播的购买决策受距离、库存、时间与服务非标影响。原有导流和商详承载不足，用户需要反复探索，核心漏斗出现明显断点。",
+    problem: [
+      "导流信息不精准，用户进直播间后才发现距离、库存或场次不合适。",
+      "二级页面调用成本高，加载失败与链路长度共同放大跳出。",
+      "商详结构未适配不同商品形态，优惠、服务保障和操作入口不够突出。",
+    ],
+    responsibility: [
+      "排查核心漏斗与用户链路，确定导流页、链路缩短和商详页三个抓手。",
+      "设计导流信息结构与赛马机制，前置 LBS、价格、销量、库存等决策信息。",
+      "设计半屏弹窗链路和三类商详形态，推动埋点、A/B 测试与全量。",
+      "协同算法、前后端、设计与运营完成方案评审和效果回收。",
+    ],
+    insight: [
+      "本地生活直播的关键不是制造更多点击，而是让合适的人在点击前获得足够信息。",
+      "链路每多一次跳转，既增加操作成本，也叠加一次加载与返回失败风险。",
+    ],
+    decisions: [
+      "下线传统主播预览式导流，把关键决策信息前置，用标签赛马筛出更有吸引力的内容。",
+      "将二级商详改为半屏弹窗，保留直播上下文并降低页面调用成本。",
+      "按无图、有图、多图拆分商详形态，并通过连续 20+ 天多组 A/B 测试选择方案。",
+    ],
+    solution: [
+      "新增精准导流页，展示定位、折扣、销量、库存与直播状态。",
+      "用半屏商详替代二级跳转，补足回流入口并强化信息透出。",
+      "重组价格优惠、服务保障和预约信息，固定关键操作按钮。",
+      "建立新增埋点与 20/20 切量实验，持续校验漏斗变化。",
+    ],
+    metrics: [
+      { value: "18.92% → 27.99%", label: "导流页点击率", note: "精准信息前置" },
+      { value: "21.37% → 29.71%", label: "商详至下单转化", note: "结构与操作路径优化" },
+      { value: "+4.12%", label: "直播间 GMV", note: "由项目驱动的交易增长" },
+    ],
+    moreMetrics: [
+      { value: "77.13% → 59.04%", label: "商详页跳出率" },
+      { value: "35.92% → 40.12%", label: "小房车至商详转化" },
+      { value: "12.92% → 15.78%", label: "商详至支付转化" },
+      { value: "20.43% → 23.78%", label: "直播间整体点击率" },
+    ],
+    reflection: [
+      "商详停留时间下降并不天然代表体验变差，需要结合转化与任务完成效率解释。",
+      "后续可细分商品类型、距离与库存状态，观察哪些信息对不同用户最有帮助。",
+      "A/B 实验之外，还需跟踪退货与投诉等长期质量指标，避免只优化前链路。",
+    ],
+    accent: "ink",
+    companion: "note",
+    media: [
+      { type: "image", src: "/assets/douyin-guide-new.png", alt: "改版后前置交易信息的精准导流卡片", caption: "精准导流：点击前完成距离、价格与库存判断" },
+      { type: "image", src: "/assets/douyin-half-screen.png", alt: "直播间内打开商品列表的半屏承接样式", caption: "链路缩短：在直播上下文内完成商品浏览" },
+      { type: "image", src: "/assets/douyin-detail-image.png", alt: "图文型商品详情页面", caption: "商详分型：按商品内容重新组织信息" },
     ],
   },
   {

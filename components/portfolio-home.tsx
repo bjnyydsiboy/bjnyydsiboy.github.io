@@ -1,7 +1,5 @@
 "use client";
 
-import { sitePath } from "@/lib/site-path";
-
 import Image from "next/image";
 import {
   ArrowDown,
@@ -35,8 +33,9 @@ const navItems = [
 ] as const;
 
 const companyLogos = {
-  "baidu-wenxin": { src: sitePath("/assets/logo-baidu.svg"), alt: "百度 Logo" },
-  "meituan-commercialization": { src: sitePath("/assets/logo-meituan.svg"), alt: "美团 Logo" },
+  "baidu-wenxin": { src: "/assets/logo-baidu.svg", alt: "百度 Logo" },
+  "douyin-live": { src: "/assets/logo-douyin.svg", alt: "抖音 Logo" },
+  "meituan-commercialization": { src: "/assets/logo-meituan.svg", alt: "美团 Logo" },
 } as const;
 
 function SectionHeading({
@@ -79,6 +78,7 @@ function ScrollProgress() {
 
 const internshipTags: Record<WorkCase["slug"], string[]> = {
   "baidu-wenxin": ["AI 讲题产品", "评估体系", "体验优化"],
+  "douyin-live": ["本地生活直播", "C 端转化", "交易链路"],
   "meituan-commercialization": ["医美商业化", "0—1 产品", "广告系统"],
 };
 
@@ -178,16 +178,16 @@ function WorkCard({ item, featured = false }: { item: WorkCase; featured?: boole
           ))}
         </div>
 
-        <a className="case-link" href={sitePath(`/work/${item.slug}`)}>
+        <a className="case-link" href={`/work/${item.slug}`}>
           查看完整项目 <ArrowUpRight size={17} aria-hidden="true" />
         </a>
       </div>
       <div className="work-card-companion">
         <Companion
           type={item.companion}
-          label={item.companion === "bear" ? "百度熊" : "美团吉祥物袋鼠团团"}
+          label={item.companion === "bear" ? "百度熊" : item.companion === "note" ? "抖音项目音符陪伴角色" : "美团吉祥物袋鼠团团"}
         />
-        <span>{item.companion === "bear" ? "把体验问题拉回同一套指标" : "6 周上线 MVP"}</span>
+        <span>{item.companion === "bear" ? "把体验问题拉回同一套指标" : item.companion === "note" ? "少一次跳转，多一分确定" : "6 周上线 MVP"}</span>
       </div>
     </motion.article>
   );
@@ -241,7 +241,7 @@ export function PortfolioHome() {
               </button>
             ))}
           </div>
-          <a className="resume-nav" href={sitePath("/docs/resume.pdf")} download="柏俊男-产品经理简历.pdf">
+          <a className="resume-nav" href="/docs/resume.pdf" download="柏俊男-产品经理简历.pdf">
             简历 PDF <Download size={15} aria-hidden="true" />
           </a>
           <button className="menu-toggle" type="button" onClick={() => setMenuOpen((open) => !open)} aria-expanded={menuOpen} aria-label={menuOpen ? "关闭导航菜单" : "打开导航菜单"}>
@@ -257,7 +257,7 @@ export function PortfolioHome() {
                   {item.label}
                 </button>
               ))}
-              <a href={sitePath("/docs/resume.pdf")} download="柏俊男-产品经理简历.pdf">下载简历 PDF</a>
+              <a href="/docs/resume.pdf" download="柏俊男-产品经理简历.pdf">下载简历 PDF</a>
             </motion.div>
           ) : null}
         </AnimatePresence>
@@ -285,7 +285,7 @@ export function PortfolioHome() {
             <button className="primary-button" type="button" onClick={() => goTo("experience")}>
               先看代表项目 <ArrowRight size={18} aria-hidden="true" />
             </button>
-            <a className="secondary-button" href={sitePath("/docs/resume.pdf")} download="柏俊男-产品经理简历.pdf">
+            <a className="secondary-button" href="/docs/resume.pdf" download="柏俊男-产品经理简历.pdf">
               下载简历 <Download size={17} aria-hidden="true" />
             </a>
             <button className="text-button" type="button" onClick={() => goTo("contact")}>联系我</button>
@@ -294,12 +294,12 @@ export function PortfolioHome() {
 
         <motion.div className="hero-visual" initial={false} whileHover={reduceMotion ? undefined : { y: -4, rotate: -0.25 }}>
           <div className="hero-photo-frame">
-            <Image src={sitePath("/assets/ruc-night-portrait.jpg")} alt="柏俊男在中国人民大学校园留影" fill priority sizes="(max-width: 760px) 94vw, 48vw" />
+            <Image src="/assets/ruc-night-portrait.jpg" alt="柏俊男在中国人民大学校园留影" fill priority sizes="(max-width: 760px) 94vw, 48vw" />
             <div className="photo-wash" aria-hidden="true" />
           </div>
           <div className="photo-index" aria-hidden="true"><strong>CAMPUS NOTE</strong><small>RUC · BEIJING</small></div>
           <aside className="photo-note">
-            <strong>百度 · 美团</strong>
+            <strong>百度 · 字节 · 美团</strong>
             <p>金融 × 产品 × AI</p>
           </aside>
           <div className="photo-stamp">校园一刻</div>
@@ -329,7 +329,7 @@ export function PortfolioHome() {
         </Reveal>
         <Reveal className="education-paper">
           <div className="campus-image">
-            <Image src={sitePath("/assets/ruc-campus.webp")} alt="中国人民大学校园明德楼" fill sizes="(max-width: 760px) 92vw, 45vw" />
+            <Image src="/assets/ruc-campus.webp" alt="中国人民大学校园明德楼" fill sizes="(max-width: 760px) 92vw, 45vw" />
           </div>
           <div className="education-copy">
             <span>RENMIN UNIVERSITY OF CHINA</span>
