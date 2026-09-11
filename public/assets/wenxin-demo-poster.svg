@@ -1,0 +1,60 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="40" x2="1180" y2="680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9FCFF"/>
+      <stop offset="0.58" stop-color="#EAF5FF"/>
+      <stop offset="1" stop-color="#E9F1FF"/>
+    </linearGradient>
+    <linearGradient id="play" x1="890" y1="252" x2="1006" y2="368" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#58A7FF"/>
+      <stop offset="1" stop-color="#246FDF"/>
+    </linearGradient>
+    <filter id="shadow" x="735" y="42" width="430" height="680" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#2A659F" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="720" rx="32" fill="url(#bg)"/>
+  <circle cx="1160" cy="62" r="210" fill="#BCEAFF" fill-opacity="0.28"/>
+  <circle cx="112" cy="720" r="250" fill="#D6D9FF" fill-opacity="0.24"/>
+
+  <rect x="76" y="70" width="6" height="42" rx="3" fill="#246FDF"/>
+  <text x="102" y="88" fill="#6C84A4" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="3">WENXIN TEACHER</text>
+  <text x="102" y="113" fill="#246FDF" font-family="Arial, 'PingFang SC', sans-serif" font-size="19" font-weight="700">真实产品录屏 · 01:46</text>
+
+  <text x="76" y="228" fill="#172131" font-family="'PingFang SC', 'Noto Sans CJK SC', Arial, sans-serif" font-size="62" font-weight="700">一道题，</text>
+  <text x="76" y="310" fill="#172131" font-family="'PingFang SC', 'Noto Sans CJK SC', Arial, sans-serif" font-size="62" font-weight="700">怎么被讲明白？</text>
+  <text x="78" y="366" fill="#68788D" font-family="'PingFang SC', 'Noto Sans CJK SC', Arial, sans-serif" font-size="25">从识题、拆解到板书与追问，看完整讲题过程。</text>
+
+  <g font-family="'PingFang SC', 'Noto Sans CJK SC', Arial, sans-serif" font-size="18" font-weight="600">
+    <rect x="76" y="430" width="134" height="50" rx="25" fill="white" stroke="#CFE1F2"/>
+    <text x="111" y="462" fill="#315B8E">在线板书</text>
+    <rect x="224" y="430" width="134" height="50" rx="25" fill="white" stroke="#CFE1F2"/>
+    <text x="259" y="462" fill="#315B8E">分层讲解</text>
+    <rect x="372" y="430" width="134" height="50" rx="25" fill="white" stroke="#CFE1F2"/>
+    <text x="407" y="462" fill="#315B8E">互动追问</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="775" y="58" width="350" height="620" rx="46" fill="white" stroke="#C5DBEF" stroke-width="2"/>
+    <rect x="799" y="86" width="302" height="564" rx="30" fill="#F7F9FC"/>
+    <rect x="895" y="101" width="110" height="9" rx="4.5" fill="#D8E2EC"/>
+    <rect x="825" y="146" width="250" height="94" rx="18" fill="#EFF2F8"/>
+    <rect x="845" y="166" width="142" height="12" rx="6" fill="#A9B4C2"/>
+    <rect x="845" y="190" width="194" height="10" rx="5" fill="#D0D8E2"/>
+    <rect x="845" y="210" width="166" height="10" rx="5" fill="#D0D8E2"/>
+    <rect x="825" y="392" width="250" height="86" rx="18" fill="#E6F7EF"/>
+    <rect x="845" y="416" width="120" height="12" rx="6" fill="#3CB180"/>
+    <rect x="845" y="442" width="190" height="10" rx="5" fill="#A8D9C4"/>
+    <rect x="825" y="498" width="250" height="104" rx="18" fill="#FFF0F0"/>
+    <rect x="845" y="522" width="108" height="12" rx="6" fill="#D76565"/>
+    <rect x="845" y="548" width="190" height="10" rx="5" fill="#E4BBBB"/>
+    <rect x="845" y="568" width="158" height="10" rx="5" fill="#E4BBBB"/>
+  </g>
+
+  <circle cx="950" cy="316" r="64" fill="url(#play)"/>
+  <path d="M935 284L981 316L935 348V284Z" fill="white"/>
+  <circle cx="950" cy="316" r="74" stroke="white" stroke-opacity="0.72" stroke-width="2"/>
+
+  <text x="76" y="626" fill="#246FDF" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2.5">PRESS PLAY</text>
+  <path d="M207 620H546" stroke="#B8D3EC" stroke-width="2" stroke-linecap="round"/>
+</svg>
